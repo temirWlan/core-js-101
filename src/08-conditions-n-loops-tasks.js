@@ -27,15 +27,19 @@
  *
  */
 function getFizzBuzz(num) {
+  let res = 0;
+
   if (num % 3 !== 0 && num % 5 !== 0) {
-    return num;
+    res = num;
   } if (num % 3 === 0 && num % 5 === 0) {
-    return 'FizzBuzz';
+    res = 'FizzBuzz';
   } if (num % 3 === 0) {
-    return 'Fizz';
+    res = 'Fizz';
   } if (num % 5 === 0) {
-    return 'Buzz';
+    res = 'Buzz';
   }
+
+  return res;
 }
 
 /**
@@ -49,7 +53,7 @@ function getFizzBuzz(num) {
  *   5  => 120
  *   10 => 3628800
  */
-const getFactorial = (n) => (n != 1 ? n * getFactorial(n - 1) : 1);
+const getFactorial = (n) => (n !== 1 ? n * getFactorial(n - 1) : 1);
 
 /**
  * Returns the sum of integer numbers between n1 and n2 (inclusive).
@@ -66,7 +70,7 @@ const getFactorial = (n) => (n != 1 ? n * getFactorial(n - 1) : 1);
 function getSumBetweenNumbers(n1, n2) {
   let counter = 0;
 
-  for (let i = n1; i <= n2; i++) {
+  for (let i = n1; i <= n2; i += 1) {
     counter += i;
   }
 
@@ -89,10 +93,10 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a, b, c) {
-  const args = Object.values(arguments);
+  const args = [a, b, c];
   let res = true;
 
-  for (let i = 0; i < args.length; i++) {
+  for (let i = 0; i < args.length; i += 1) {
     if (args[i] <= 1) {
       res = false;
     }
@@ -185,20 +189,21 @@ function isInsideCircle(/* circle, point */) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    let res = '';
-    const letterArr = str.split('').filter(letter => letter !== ' ').sort();
+  let res = '';
+  const letterArr = str.split('').filter((letter) => letter !== ' ').sort();
 
-    for (let i = 0; i < letterArr.length; i++) {
-        const currLet = letterArr[i];
-        if (currLet !== letterArr[i - 1] && currLet !== letterArr[i + 1]) {
-        res = currLet;
-        break;
-        } else {
-        res = null;
-        }
+  for (let i = 0; i < letterArr.length; i += 1) {
+    const currLet = letterArr[i];
+
+    if (currLet !== letterArr[i - 1] && currLet !== letterArr[i + 1]) {
+      res = currLet;
+      break;
+    } else {
+      res = null;
     }
+  }
 
-    return res;
+  return res;
 }
 
 /**

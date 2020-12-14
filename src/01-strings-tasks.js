@@ -180,30 +180,8 @@ const extractEmails = (str) => str.replace(/;/g, ' ').split(' ');
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(width, height) {
-  const parts = {
-    horizontalLine: '─',
-    vertical: '│',
-    leftTopCorner: '┌',
-    rightTopCorner: '┐',
-    rightBottomCorner: '┘',
-    leftBottomCorner: '└',
-  };
-
-  let res = '';
-
-  for (let i = 0; i < height; i++) {
-    switch (i) {
-      case 0:
-        res += parts.leftTopCorner;
-        break;
-      case height - 1:
-        res += parts.leftTopCorner;
-        break;
-    }
-
-    // for (let i )
-  }
+function getRectangleString(/* width, height */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -222,13 +200,8 @@ function getRectangleString(width, height) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(str) {
-  const ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-  const strArr = str.split('').map((letter) => {
-    if (letter !== ' ') {
-
-    }
-  });
+function encodeToRot13(/* str */) {
+  throw new Error('Not implemented');
 }
 
 /**

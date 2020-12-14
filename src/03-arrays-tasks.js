@@ -204,7 +204,7 @@ function getMovingSum(arr) {
   const newArr = arr.map((num, idx) => {
     let n = 0;
 
-    for (let i = 0; i <= idx; i++) {
+    for (let i = 0; i <= idx; i += 1) {
       n += arr[i];
     }
 
@@ -241,7 +241,9 @@ const getSecondItems = (arr) => arr.filter((item, idx) => idx % 2 !== 0);
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-const propagateItemsByPositionIndex = (arr) => arr.map((item, idx) => Array(idx + 1).fill(item)).flat();
+function propagateItemsByPositionIndex(arr) {
+  return arr.map((item, idx) => Array(idx + 1).fill(item)).flat();
+}
 
 /**
  * Returns the 3 largest numbers from the specified array
@@ -303,8 +305,8 @@ function sortDigitNamesByNumericOrder(arr) {
   const sortedStrArr = [];
   const numObjEntries = Object.entries(NUMBERS);
 
-  for (let i = 0; i < sortedNumArr.length; i++) {
-    for (let j = 0; j < numObjEntries.length; j++) {
+  for (let i = 0; i < sortedNumArr.length; i += 1) {
+    for (let j = 0; j < numObjEntries.length; j += 1) {
       if (sortedNumArr[i] === numObjEntries[j][1]) {
         sortedStrArr.push(numObjEntries[j][0]);
       }
@@ -418,8 +420,11 @@ function sortCitiesArray(arr) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-const getIdentityMatrix = (n) => Array(n).fill([]).map((array) => Array(n).fill(0)).map((array, idx) => [...array.slice(0, idx), 1, ...array.slice(idx + 1)]);
-
+function getIdentityMatrix(n) {
+  return Array(n).fill([])
+    .map(() => Array(n).fill(0))
+    .map((array, idx) => [...array.slice(0, idx), 1, ...array.slice(idx + 1)]);
+}
 /**
  * Creates an array of integers from the specified start to end (inclusive)
  *
@@ -436,9 +441,8 @@ const getIdentityMatrix = (n) => Array(n).fill([]).map((array) => Array(n).fill(
 function getIntervalArray(start, end) {
   const arr = [];
 
-  while (start <= end) {
-    arr.push(start);
-    start++;
+  for (let i = start; i <= end; i += 1) {
+    arr.push(i);
   }
 
   return arr;
@@ -518,7 +522,11 @@ const selectMany = (arr, childrenSelector) => arr.flat().map(childrenSelector);
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-const getElementByIndexes = (arr, indexes) => (indexes.length === 1 ? arr[indexes[0]] : getElementByIndexes(arr[indexes[0]], indexes.slice(1)));
+function getElementByIndexes(arr, indexes) {
+  return indexes.length === 1
+    ? arr[indexes[0]]
+    : getElementByIndexes(arr[indexes[0]], indexes.slice(1));
+}
 
 /**
  * Swaps the head and tail of the specified array:

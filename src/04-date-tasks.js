@@ -83,7 +83,7 @@ function timeSpanToString(startDate, endDate) {
   const keys = ['hours', 'minutes', 'seconds', 'milliseconds'];
   let res = '';
 
-  for (let i = 0; i < keys.length; i++) {
+  for (let i = 0; i < keys.length; i += 1) {
     res += endDateTime[keys[i]] - startDateTime[keys[i]];
   }
 

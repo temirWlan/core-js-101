@@ -183,7 +183,7 @@ const roundToPowerOfTen = (num, pow) => (pow === 0 ? num : Math.round(num / 10 *
 function isPrime(n) {
   let isPrimeNum = true;
 
-  for (let i = 2; i < n; i++) {
+  for (let i = 2; i < n; i += 1) {
     if (Number.isInteger(n / i)) {
       isPrimeNum = false;
     }
@@ -207,7 +207,7 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-const toNumber = (value, def) => (Number.isNaN(parseInt(value)) ? def : parseInt(value));
+const toNumber = (value, def) => (Number.isNaN(parseInt(value, 10)) ? def : parseInt(value, 10));
 
 module.exports = {
   getRectangleArea,
