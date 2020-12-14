@@ -173,8 +173,22 @@ function doRectanglesOverlap(rect1, rect2) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  const obj = {
+    x: circle.center.x + circle.radius,
+    y: circle.center.y + circle.radius,
+  };
+  const objValues = Object.values(obj);
+  const pointValues = Object.values(point);
+  let res = true;
+
+  for (let i = 0; i < objValues.length; i += 1) {
+    if (objValues[i] <= pointValues[i]) {
+      res = false;
+    }
+  }
+
+  return res;
 }
 
 /**
@@ -228,8 +242,16 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  let res = '';
+
+  if (a > b) {
+    res += `${isStartIncluded ? '[' : '('}${b}, ${a}${isEndIncluded ? ']' : ')'}`;
+  } else {
+    res += `${isStartIncluded ? '[' : '('}${a}, ${b}${isEndIncluded ? ']' : ')'}`;
+  }
+
+  return res;
 }
 
 /**
@@ -244,8 +266,14 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  let res = '';
+
+  for (let i = str.length; i > 0; i -= 1) {
+    res += str[i - 1];
+  }
+
+  return res;
 }
 
 /**
@@ -260,8 +288,15 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  const str = String(num);
+  let res = '';
+
+  for (let i = str.length; i > 0; i -= 1) {
+    res += str[i - 1];
+  }
+
+  return parseInt(res, 10);
 }
 
 /**
@@ -302,8 +337,14 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  const newNum = String(num).split('').map((str) => parseInt(str, 10)).reduce((sum, curr) => sum + curr, 0);
+
+  if (num > 9) {
+    return getDigitalRoot(newNum);
+  }
+
+  return num;
 }
 
 /**
