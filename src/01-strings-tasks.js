@@ -5,7 +5,6 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-
 /**
  * Returns the result of concatenation of two strings.
  *
@@ -20,7 +19,6 @@
  */
 const concatenateStrings = (value1, value2) => value1 + value2;
 
-
 /**
  * Returns the length of given string.
  *
@@ -32,7 +30,7 @@ const concatenateStrings = (value1, value2) => value1 + value2;
  *   'b'     => 1
  *   ''      => 0
  */
-const getStringLength = value => value.length;
+const getStringLength = (value) => value.length;
 
 /**
  * Returns the result of string template and given parameters firstName and lastName.
@@ -59,8 +57,7 @@ const getStringFromTemplate = (firstName, lastName) => `Hello, ${firstName} ${la
  *   'Hello, John Doe!' => 'John Doe'
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
-const extractNameFromTemplate = value => value.replace(/Hello, /g, '').replace(/!/g, '');
-
+const extractNameFromTemplate = (value) => value.replace(/Hello, /g, '').replace(/!/g, '');
 
 /**
  * Returns a first char of the given string.
@@ -72,7 +69,7 @@ const extractNameFromTemplate = value => value.replace(/Hello, /g, '').replace(/
  *   'John Doe'  => 'J'
  *   'cat'       => 'c'
  */
-const getFirstChar = value => value[0];
+const getFirstChar = (value) => value[0];
 
 /**
  * Removes a leading and trailing whitespace characters from string.
@@ -85,11 +82,11 @@ const getFirstChar = value => value[0];
  *   'cat'              => 'cat'
  *   '\tHello, World! ' => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces(value){ 
+function removeLeadingAndTrailingWhitespaces(value) {
   return value.split(' ')
-              .filter(str => str !== '')
-              .map(str => str.replace(/\s/g, ''))
-              .join(' ');
+    .filter((str) => str !== '')
+    .map((str) => str.replace(/\s/g, ''))
+    .join(' ');
 }
 /**
  * Returns a string that repeated the specified number of times.
@@ -129,8 +126,7 @@ const removeFirstOccurrences = (str, value) => str.replace(value, '');
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
-const unbracketTag = str => str.replace(/[<>]/g, '');
-
+const unbracketTag = (str) => str.replace(/[<>]/g, '');
 
 /**
  * Converts all characters of the specified string into the upper case
@@ -142,7 +138,7 @@ const unbracketTag = str => str.replace(/[<>]/g, '');
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
-const convertToUpperCase = str => str.toUpperCase();
+const convertToUpperCase = (str) => str.toUpperCase();
 
 /**
  * Extracts e-mails from single string with e-mails list delimeted by semicolons
@@ -159,7 +155,7 @@ const convertToUpperCase = str => str.toUpperCase();
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-const extractEmails = str => str.replace(/;/g, ' ').split(' ');
+const extractEmails = (str) => str.replace(/;/g, ' ').split(' ');
 
 /**
  * Returns the string representation of rectangle with specified width and height
@@ -184,33 +180,31 @@ const extractEmails = str => str.replace(/;/g, ' ').split(' ');
  *             '└──────────┘\n'
  *
  */
-function getRectangleString (width, height) {
+function getRectangleString(width, height) {
   const parts = {
     horizontalLine: '─',
     vertical: '│',
     leftTopCorner: '┌',
     rightTopCorner: '┐',
     rightBottomCorner: '┘',
-    leftBottomCorner: '└'
+    leftBottomCorner: '└',
   };
-  
+
   let res = '';
-  
+
   for (let i = 0; i < height; i++) {
     switch (i) {
       case 0:
-        res += parts['leftTopCorner'];
+        res += parts.leftTopCorner;
         break;
       case height - 1:
-        res += parts['leftTopCorner'];
+        res += parts.leftTopCorner;
         break;
     }
-    
+
     // for (let i )
   }
 }
-
-
 
 /**
  * Encode specified string with ROT13 cipher
@@ -229,14 +223,12 @@ function getRectangleString (width, height) {
  *
  */
 function encodeToRot13(str) {
-  const ALPHABET = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  const strArr = str.split('').map(letter => {
+  const ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  const strArr = str.split('').map((letter) => {
     if (letter !== ' ') {
 
     }
   });
-
-  
 }
 
 /**
@@ -252,8 +244,7 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-const isString = value => typeof value === 'string' || value instanceof String ? true : false;
-
+const isString = (value) => (!!(typeof value === 'string' || value instanceof String));
 
 /**
  * Returns playid card id.
@@ -287,9 +278,8 @@ function getCardId(value) {
     'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠',
   ];
 
-  return cards.findIndex(card => card === value);
+  return cards.findIndex((card) => card === value);
 }
-
 
 module.exports = {
   concatenateStrings,

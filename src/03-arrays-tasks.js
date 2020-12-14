@@ -7,7 +7,6 @@
  *                                                                                            *
  ******************************************************************************************** */
 
-
 /**
  * Returns an index of the specified element in array or -1 if element is not found
  *
@@ -33,8 +32,7 @@ const findElement = (arr, value) => arr.indexOf(value);
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-const generateOdds = len => Array.from(Array(len * 2).keys()).filter(num => num % 2 !== 0);
-
+const generateOdds = (len) => Array.from(Array(len * 2).keys()).filter((num) => num % 2 !== 0);
 
 /**
  * Returns the doubled array - elements of the specified array
@@ -48,8 +46,7 @@ const generateOdds = len => Array.from(Array(len * 2).keys()).filter(num => num 
  *    [0, 1, 2, 3, 4, 5] => [0, 1, 2, 3, 4, 5,   0, 1, 2, 3, 4, 5]
  *    [] => []
  */
-const doubleArray = arr => [...arr, ...arr];
-
+const doubleArray = (arr) => [...arr, ...arr];
 
 /**
  * Returns an array of positive numbers from the specified array in original order
@@ -62,7 +59,7 @@ const doubleArray = arr => [...arr, ...arr];
  *    [-1, 2, -5, -4, 0] => [ 2 ]
  *    [] => []
  */
-const getArrayOfPositives = arr => arr.length === 0 ? [] : arr.filter(num => num > 0);
+const getArrayOfPositives = (arr) => (arr.length === 0 ? [] : arr.filter((num) => num > 0));
 
 /**
  * Returns the array with strings only in the specified array (in original order)
@@ -75,7 +72,7 @@ const getArrayOfPositives = arr => arr.length === 0 ? [] : arr.filter(num => num
  *    [ 1, 2, 3, 4, 5 ] => []
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
-const getArrayOfStrings = arr => arr.filter(item => typeof item === 'string');
+const getArrayOfStrings = (arr) => arr.filter((item) => typeof item === 'string');
 
 /**
  * Removes falsy values from the specified array
@@ -90,7 +87,7 @@ const getArrayOfStrings = arr => arr.filter(item => typeof item === 'string');
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-const removeFalsyValues = arr => arr.filter(item => item);
+const removeFalsyValues = (arr) => arr.filter((item) => item);
 
 /**
  * Returns the array of uppercase strings from the specified array
@@ -103,8 +100,7 @@ const removeFalsyValues = arr => arr.filter(item => item);
  *    => [ 'PERMANENT-INTERNSHIP', 'GLUTINOUS-SHRIEK', 'MULTIPLICATIVE-ELEVATION' ],
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
-const getUpperCaseStrings = arr => arr.map(str => str.toUpperCase());
-
+const getUpperCaseStrings = (arr) => arr.map((str) => str.toUpperCase());
 
 /**
  * Returns the array of string lengths from the specified string array.
@@ -116,7 +112,7 @@ const getUpperCaseStrings = arr => arr.map(str => str.toUpperCase());
  *    [ '', 'a', 'bc', 'def', 'ghij' ]  => [ 0, 1, 2, 3, 4 ]
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
-const getStringsLength = arr => arr.map(str => str.length);
+const getStringsLength = (arr) => arr.map((str) => str.length);
 
 /**
  * Inserts the item into specified array at specified index
@@ -143,7 +139,6 @@ const insertItem = (arr, item, index) => [...arr.slice(0, index), item, ...arr.s
  */
 const getHead = (arr, n) => arr.slice(0, n);
 
-
 /**
  * Returns the n last items of the specified array
  *
@@ -155,7 +150,6 @@ const getHead = (arr, n) => arr.slice(0, n);
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 const getTail = (arr, n) => arr.slice(arr.length - n);
-
 
 /**
  * Returns CSV represebtation of two-dimentional numeric array.
@@ -177,7 +171,7 @@ const getTail = (arr, n) => arr.slice(arr.length - n);
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-const toCsvText = arr => arr.map(array => array.join(',')).map((str, idx) => idx !== arr.length - 1 ? `${str}\n` : str).join('');
+const toCsvText = (arr) => arr.map((array) => array.join(',')).map((str, idx) => (idx !== arr.length - 1 ? `${str}\n` : str)).join('');
 
 /**
  * Transforms the numeric array into the according array of squares:
@@ -190,8 +184,7 @@ const toCsvText = arr => arr.map(array => array.join(',')).map((str, idx) => idx
  *   [ 0, 1, 2, 3, 4, 5 ] => [ 0, 1, 4, 9, 16, 25 ]
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
-const toArrayOfSquares = arr => arr.map(num => num ** 2);
-
+const toArrayOfSquares = (arr) => arr.map((num) => num ** 2);
 
 /**
  * Transforms the numeric array to the according moving sum array:
@@ -217,7 +210,7 @@ function getMovingSum(arr) {
 
     return n;
   });
-  
+
   return [arr[0], ...newArr.slice(1)];
 }
 
@@ -232,8 +225,7 @@ function getMovingSum(arr) {
  * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
  * [ "a" ] => []
  */
-const getSecondItems = arr => arr.filter((item, idx) => idx % 2 !== 0);
-
+const getSecondItems = (arr) => arr.filter((item, idx) => idx % 2 !== 0);
 
 /**
  * Propagates every item in sequence its position times
@@ -249,8 +241,7 @@ const getSecondItems = arr => arr.filter((item, idx) => idx % 2 !== 0);
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-const propagateItemsByPositionIndex = arr => arr.map((item, idx) => Array(idx + 1).fill(item)).flat();
-
+const propagateItemsByPositionIndex = (arr) => arr.map((item, idx) => Array(idx + 1).fill(item)).flat();
 
 /**
  * Returns the 3 largest numbers from the specified array
@@ -265,8 +256,7 @@ const propagateItemsByPositionIndex = arr => arr.map((item, idx) => Array(idx + 
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
-const get3TopItems = arr => arr.sort((a, b) => a - b).slice(0, 3);
-
+const get3TopItems = (arr) => arr.sort((a, b) => a - b).slice(0, 3);
 
 /**
  * Returns the number of positive numbers from specified array
@@ -281,7 +271,7 @@ const get3TopItems = arr => arr.sort((a, b) => a - b).slice(0, 3);
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-const getPositivesCount = arr => arr.filter(item => item > 0).length;
+const getPositivesCount = (arr) => arr.filter((item) => item > 0).length;
 
 /**
  * Sorts digit names
@@ -298,21 +288,21 @@ const getPositivesCount = arr => arr.filter(item => item > 0).length;
  */
 function sortDigitNamesByNumericOrder(arr) {
   const NUMBERS = {
-    'zero': 0,
-    'one': 1,
-    'two': 2,
-    'three': 3,
-    'four': 4,
-    'five': 5,
-    'six': 6,
-    'seven': 7,
-    'eight': 8,
-    'nine': 9
+    zero: 0,
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9,
   };
-  const sortedNumArr = arr.map(str => NUMBERS[str]).sort((a, b) => a - b);
+  const sortedNumArr = arr.map((str) => NUMBERS[str]).sort((a, b) => a - b);
   const sortedStrArr = [];
   const numObjEntries = Object.entries(NUMBERS);
-  
+
   for (let i = 0; i < sortedNumArr.length; i++) {
     for (let j = 0; j < numObjEntries.length; j++) {
       if (sortedNumArr[i] === numObjEntries[j][1]) {
@@ -320,7 +310,7 @@ function sortDigitNamesByNumericOrder(arr) {
       }
     }
   }
-  return sortedStrArr; 
+  return sortedStrArr;
 }
 
 /**
@@ -335,7 +325,7 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-const getItemsSum = arr => arr.reduce((sum, curr) => sum + curr, 0);
+const getItemsSum = (arr) => arr.reduce((sum, curr) => sum + curr, 0);
 
 /**
  * Returns the number of all falsy value in the specified array
@@ -349,7 +339,7 @@ const getItemsSum = arr => arr.reduce((sum, curr) => sum + curr, 0);
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-const getFalsyValuesCount = arr => arr.filter(item => !item).length;
+const getFalsyValuesCount = (arr) => arr.filter((item) => !item).length;
 
 /**
  * Returns a number of all occurences of the specified item in an array
@@ -365,7 +355,7 @@ const getFalsyValuesCount = arr => arr.filter(item => !item).length;
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-const findAllOccurences = (arr, item) => arr.filter(elem => elem === item).length;
+const findAllOccurences = (arr, item) => arr.filter((elem) => elem === item).length;
 
 /**
  * Concatenates all elements from specified array into single string with ',' delimeter
@@ -378,8 +368,7 @@ const findAllOccurences = (arr, item) => arr.filter(elem => elem === item).lengt
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-const toStringList = arr => arr.join(',');
-
+const toStringList = (arr) => arr.join(',');
 
 /**
  * Sorts the specified array by country name first and city name
@@ -429,7 +418,7 @@ function sortCitiesArray(arr) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-const getIdentityMatrix = n => Array(n).fill([]).map(array => Array(n).fill(0)).map((array, idx) => [...array.slice(0, idx), 1, ...array.slice(idx + 1)]);
+const getIdentityMatrix = (n) => Array(n).fill([]).map((array) => Array(n).fill(0)).map((array, idx) => [...array.slice(0, idx), 1, ...array.slice(idx + 1)]);
 
 /**
  * Creates an array of integers from the specified start to end (inclusive)
@@ -447,7 +436,7 @@ const getIdentityMatrix = n => Array(n).fill([]).map(array => Array(n).fill(0)).
 function getIntervalArray(start, end) {
   const arr = [];
 
-  while(start <= end) {
+  while (start <= end) {
     arr.push(start);
     start++;
   }
@@ -466,7 +455,7 @@ function getIntervalArray(start, end) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-const distinct = arr => Array.from(new Set(arr));
+const distinct = (arr) => Array.from(new Set(arr));
 
 /**
  * Groups elements of the specified array by key.
@@ -502,7 +491,6 @@ function group(/* array, keySelector, valueSelector */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Projects each element of the specified array to a sequence
  * and flattens the resulting sequences into one array.
@@ -518,7 +506,6 @@ function group(/* array, keySelector, valueSelector */) {
  */
 const selectMany = (arr, childrenSelector) => arr.flat().map(childrenSelector);
 
-
 /**
  * Returns an element from the multidimentional array by the specified indexes.
  *
@@ -531,8 +518,7 @@ const selectMany = (arr, childrenSelector) => arr.flat().map(childrenSelector);
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-const getElementByIndexes = (arr, indexes) => indexes.length === 1 ? arr[indexes[0]] : getElementByIndexes(arr[indexes[0]], indexes.slice(1)); 
-
+const getElementByIndexes = (arr, indexes) => (indexes.length === 1 ? arr[indexes[0]] : getElementByIndexes(arr[indexes[0]], indexes.slice(1)));
 
 /**
  * Swaps the head and tail of the specified array:
@@ -556,12 +542,10 @@ function swapHeadAndTail(arr) {
   if (arr.length % 2 === 0) {
     const idx = arr.length / 2;
     return [...arr.slice(idx), ...arr.slice(0, idx)];
-  } else {
-    const idx = Math.floor(arr.length / 2);
-    return [...arr.slice(idx + 1), arr[idx], ...arr.slice(0, idx)];
   }
+  const idx = Math.floor(arr.length / 2);
+  return [...arr.slice(idx + 1), arr[idx], ...arr.slice(0, idx)];
 }
-
 
 module.exports = {
   findElement,

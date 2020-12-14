@@ -7,7 +7,6 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-
 /**
  * Returns an area of a rectangle given by width and heigth.
  *
@@ -21,7 +20,6 @@
  */
 const getRectangleArea = (width, height) => width * height;
 
-
 /**
  * Returns a circumference of circle given by radius.
  *
@@ -33,7 +31,7 @@ const getRectangleArea = (width, height) => width * height;
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-const getCicleCircumference = radius => 2 * Math.PI * radius; 
+const getCicleCircumference = (radius) => 2 * Math.PI * radius;
 
 /**
  * Returns an average of two given numbers.
@@ -82,7 +80,6 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  */
 const getLinearEquationRoot = (a, b) => -b / a;
 
-
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
  * coordinates in Cartesian plane.
@@ -117,8 +114,7 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-const getLastDigit = value => +String(value)[String(value).length -  1];
-
+const getLastDigit = (value) => +String(value)[String(value).length - 1];
 
 /**
  * Returns a number by given string representation.
@@ -131,7 +127,7 @@ const getLastDigit = value => +String(value)[String(value).length -  1];
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-const parseNumberFromString = value => +value;
+const parseNumberFromString = (value) => +value;
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
@@ -146,7 +142,7 @@ const parseNumberFromString = value => +value;
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-const getParallelipidedDiagonal = (a, b, c) => Math.sqrt(a**2 + b**2 + c**2);
+const getParallelipidedDiagonal = (a, b, c) => Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 
 /**
  * Returns the number rounded to specified power of 10.
@@ -165,7 +161,7 @@ const getParallelipidedDiagonal = (a, b, c) => Math.sqrt(a**2 + b**2 + c**2);
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-const roundToPowerOfTen = (num, pow) => pow === 0 ? num : Math.round(num / 10**pow) * 10**pow;
+const roundToPowerOfTen = (num, pow) => (pow === 0 ? num : Math.round(num / 10 ** pow) * 10 ** pow);
 
 /**
  * Returns true is the number is prime; otherwise false.
@@ -192,7 +188,7 @@ function isPrime(n) {
       isPrimeNum = false;
     }
   }
-  
+
   return isPrimeNum;
 }
 
@@ -211,7 +207,7 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-const toNumber = (value, def) => Number.isNaN(parseInt(value)) ? def : parseInt(value);
+const toNumber = (value, def) => (Number.isNaN(parseInt(value)) ? def : parseInt(value));
 
 module.exports = {
   getRectangleArea,
